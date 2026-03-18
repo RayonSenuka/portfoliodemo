@@ -1,0 +1,289 @@
+/* ===== ABOUT PAGE ===== */
+.about {
+  min-height: 100vh;
+}
+
+.about-hero {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) contrast(1.1);
+  transform: scale(1.1);
+  transition: transform 1.2s var(--ease-smooth);
+}
+
+.about-hero-image.revealed img {
+  transform: scale(1);
+}
+
+.about-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--bg-primary) 100%);
+}
+
+.about-monogram {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  font-family: var(--font-serif);
+  font-size: clamp(8rem, 15vw, 14rem);
+  font-weight: 700;
+  color: rgba(201, 168, 76, 0.06);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  z-index: 1;
+  user-select: none;
+}
+
+.about-hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  position: relative;
+}
+
+.about-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.about-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  line-height: 1.1;
+}
+
+.about-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+}
+
+.about-bio {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  max-width: 440px;
+  margin-bottom: 3rem;
+}
+
+.about-social {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.about-social-link {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+
+.about-social-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-smooth);
+}
+
+.about-social-link:hover {
+  color: var(--accent);
+}
+
+.about-social-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ===== SKILLS SECTION ===== */
+.skills-section {
+  padding: 8rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.skill-card {
+  padding: 2.5rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-smooth), border-color 0.5s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-number {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(201, 168, 76, 0.12);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.skill-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.skill-desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.experience-section {
+  padding: 6rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .about-hero-image {
+    height: 50vh;
+  }
+  
+  .about-hero-image::after {
+    background: linear-gradient(180deg, transparent 60%, var(--bg-primary) 100%);
+  }
+  
+  .about-hero-text {
+    padding: 2rem 1.5rem 4rem;
+  }
+  
+  .about-monogram {
+    bottom: 1rem;
+    left: 1.5rem;
+    font-size: 6rem;
+  }
+  
+  .skills-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .experience-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

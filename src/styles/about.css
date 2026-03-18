@@ -150,7 +150,7 @@
 .skill-card {
   padding: 2.5rem;
   background: var(--bg-card);
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 6px;
   position: relative;
   overflow: hidden;
@@ -207,7 +207,7 @@
   padding: 6rem 3rem;
   max-width: 1200px;
   margin: 0 auto;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .experience-grid {
@@ -240,7 +240,7 @@
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .experience-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -252,37 +252,37 @@
     grid-template-columns: 1fr;
     height: auto;
   }
-  
+
   .about-hero-image {
     height: 50vh;
   }
-  
+
   .about-hero-image::after {
     background: linear-gradient(180deg, transparent 60%, var(--bg-primary) 100%);
   }
-  
+
   .about-hero-text {
     padding: 2rem 1.5rem 4rem;
   }
-  
+
   .about-monogram {
     bottom: 1rem;
     left: 1.5rem;
     font-size: 6rem;
   }
-  
+
   .skills-section {
     padding: 4rem 1.5rem;
   }
-  
+
   .skills-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .experience-section {
     padding: 4rem 1.5rem;
   }
-  
+
   .experience-grid {
     grid-template-columns: repeat(2, 1fr);
   }

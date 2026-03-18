@@ -5,7 +5,7 @@ export function renderHome(container) {
     <div class="home">
       <section class="hero" id="hero">
         <div class="hero-bg">
-          <img src="/images/minusha-hero.png" alt="Minusha Balasooriya - Cinematographer" class="parallax" data-speed="0.5" />
+          <img src="/images/minusha-about.jpg" alt="Minusha Balasooriya - Cinematographer" class="parallax" data-speed="0.5" />
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">

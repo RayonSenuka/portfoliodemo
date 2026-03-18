@@ -23,7 +23,7 @@ export function renderHome(container) {
       <section class="featured-section">
         <div class="featured-header fade-in-up">
           <h2 class="featured-title">Selected Work</h2>
-          <a href="#/portfolio" class="featured-view-all">View All Projects</a>
+          <a href="/portfolio" class="featured-view-all">View All Projects</a>
         </div>
         <div class="featured-grid stagger-children">
           <div class="featured-card">

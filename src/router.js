@@ -1,18 +1,43 @@
-// Simple hash-based SPA router
+// Simple History API SPA router
 export class Router {
   constructor(routes) {
     this.routes = routes;
     this.currentPage = null;
     
-    window.addEventListener('hashchange', () => this.navigate());
-    window.addEventListener('load', () => this.navigate());
+    // Listen to browser back/forward buttons
+    window.addEventListener('popstate', () => this.navigate(window.location.pathname));
+    
+    // Initial load
+    window.addEventListener('load', () => this.navigate(window.location.pathname));
+    
+    // Intercept all link clicks for internal navigation
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (link && link.href.startsWith(window.location.origin)) {
+        // Skip if it opens in a new tab or is an external link
+        if (link.target === '_blank' || link.getAttribute('rel') === 'external') return;
+        
+        // Skip if it has a download attribute
+        if (link.hasAttribute('download')) return;
+
+        e.preventDefault();
+        const path = new URL(link.href).pathname;
+        this.push(path);
+      }
+    });
   }
   
-  navigate() {
-    const hash = window.location.hash || '#/';
-    const path = hash.replace('#', '') || '/';
+  push(path) {
+    if (this.currentPage === path) return;
+    window.history.pushState(null, '', path);
+    this.navigate(path);
+  }
+  
+  navigate(path = '/') {
+    // If path is empty, default to '/'
+    const currentPath = path || '/';
     
-    const route = this.routes.find(r => r.path === path) || this.routes[0];
+    const route = this.routes.find(r => r.path === currentPath) || this.routes[0];
     
     if (this.currentPage === route.path) return;
     this.currentPage = route.path;
@@ -42,7 +67,7 @@ export class Router {
         app.classList.add('page-transition-active');
         
         // Fire custom event for page-specific animations
-        window.dispatchEvent(new CustomEvent('pageRendered', { detail: { path } }));
+        window.dispatchEvent(new CustomEvent('pageRendered', { detail: { path: currentPath } }));
       });
     }, 300);
   }

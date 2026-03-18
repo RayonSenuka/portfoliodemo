@@ -62,15 +62,6 @@ export function renderContact(container) {
           <button type="submit" class="form-submit fade-in-up">Send Message</button>
         </form>
       </div>
-
-      <div class="contact-map-section fade-in-up">
-        <div class="contact-map">
-          <div class="map-placeholder">
-            <div class="map-placeholder-icon">📍</div>
-            <div class="map-placeholder-text">Negombo, Sri Lanka</div>
-          </div>
-        </div>
-      </div>
     </div>
   `;
 

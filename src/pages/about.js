@@ -14,7 +14,7 @@ export function renderAbout(container) {
           <span class="about-title fade-in-up">Cinematographer & Filmmaker</span>
           <p class="about-bio fade-in-up">
             I'm a 19-year-old cinematographer based in Negombo, Sri Lanka. 
-            My passion lies in visual storytelling — from music videos to short films, 
+            My passion lies in visual storytelling - from music videos to short films, 
             I bring stories to life through carefully crafted camera work, dynamic compositions, 
             and cinematic color grading. Every frame is an opportunity to evoke emotion 
             and transport the audience into another world.
@@ -27,9 +27,8 @@ export function renderAbout(container) {
           </p>
           <div class="about-social fade-in-up">
             <a href="https://www.instagram.com/minu.ex" target="_blank" class="about-social-link">Instagram</a>
-            <a href="https://youtube.com" target="_blank" class="about-social-link">YouTube</a>
-            <a href="https://vimeo.com" target="_blank" class="about-social-link">Vimeo</a>
-            <a href="https://behance.net" target="_blank" class="about-social-link">Behance</a>
+            <!--<a href="https://youtube.com" target="_blank" class="about-social-link">YouTube</a>-->
+            <!--<a href="https://behance.net" target="_blank" class="about-social-link">Behance</a>-->
           </div>
         </div>
       </section>

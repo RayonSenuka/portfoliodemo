@@ -266,20 +266,26 @@
 }
 
 .reel-video-container {
-  max-width: 900px;
+  max-width: 540px;
   margin: 0 auto;
-  aspect-ratio: 16/9;
-  border-radius: 6px;
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
-  background: var(--bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.reel-video-container .instagram-media {
+  margin: 0 auto !important;
+  max-width: 540px !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  border-radius: 12px !important;
+  background: transparent !important;
 }
 
 .reel-video-container iframe {
   width: 100%;
-  height: 100%;
   border: none;
+  border-radius: 12px;
 }
 
 /* ===== RESPONSIVE ===== */

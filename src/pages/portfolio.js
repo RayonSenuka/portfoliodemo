@@ -21,7 +21,7 @@ const projects = [
         desc: 'Hand-drawn storyboard sketches mapping out the key shots — spin motion, dramatic falls, flowing water elements, and crowd energy moments.'
       },
       {
-        image: '/images/bts.png',
+        image: '/videos/videoex1.mp4',
         label: 'Production',
         desc: 'On-set filming with gimbal-stabilized camera work, practical lighting, and close collaboration with the talent to capture authentic energy.'
       },
@@ -45,23 +45,7 @@ const projects = [
     isLocalVideo: true,
     aspectRatio: '9/16',
     description: 'A high-energy concert film capturing the raw emotion and explosive atmosphere of a live performance.',
-    process: [
-      {
-        image: '/images/storyboard.png',
-        label: 'Shot Planning',
-        desc: 'Pre-show walkthrough to plan camera positions, identify key moments, and coordinate with the lighting team.'
-      },
-      {
-        image: '/images/bts.png',
-        label: 'Multi-Camera Setup',
-        desc: 'Three-camera setup covering wide, medium, and close-up angles to capture every moment of the performance.'
-      },
-      {
-        image: '/images/portfolio-2.png',
-        label: 'Post-Production',
-        desc: 'Dynamic editing synced to the beat of the music, with vibrant color grading to match the stage energy.'
-      }
-    ]
+    process: []
   },
   {
     id: 3,
@@ -78,34 +62,83 @@ const projects = [
     description: 'A contemplative short film exploring solitude and self-discovery, filmed entirely during the golden hour on the coast of Negombo.',
     process: [
       {
-        image: '/images/storyboard.png',
-        label: 'Concept & Sketches',
-        desc: 'Hand-drawn storyboards capturing the emotional arc and key visual moments of the narrative.'
+        image: '/images/3act.jpeg',
+        label: 'Concept',
+        desc: 'I structure my reels using the Three-Act Structure, applying a clear progression of setup, build, and payoff to create a cohesive and engaging flow. Each edit begins by establishing tone and capturing attention, then develops through controlled pacing and increasing intensity, and concludes with a strong visual and emotional impact.'
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: 'NSBM Green Fiesta 2026',
+    type: 'Artist Highlight Reel',
+    artist: 'Wasthi',
+    role: 'Cinematographer',
+    year: '2026',
+    thumbnail: '/images/portfolio-3.png',
+    videoUrl: '/videos/video4.mp4',
+    instagramUrl: 'https://www.instagram.com/reel/DVtDumdkz9O/?igsh=enF0M28zczFnYXVh',
+    isLocalVideo: true,
+    aspectRatio: '9/16',
+    description: 'A contemplative short film exploring solitude and self-discovery, filmed entirely during the golden hour on the coast of Negombo.',
+    process: [
+      {
+        image: '/images/3act.jpeg',
+        label: 'Concept',
+        desc: 'I structure my reels using the Three-Act Structure, applying a clear progression of setup, build, and payoff to create a cohesive and engaging flow. Each edit begins by establishing tone and capturing attention, then develops through controlled pacing and increasing intensity, and concludes with a strong visual and emotional impact.'
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: 'Hokandara Rap',
+    type: 'Music Video',
+    artist: 'Mishmack',
+    role: 'Dop, Editor & Colorist',
+    year: '2025',
+    thumbnail: '/images/portfolio-1.png',
+    videoUrl: '/videos/video5.mp4?v=2',
+    instagramUrl: 'https://www.instagram.com/reel/DCHk8XSgGuY/?igsh=c3k4dXM3dGN5ZDNx',
+    isLocalVideo: true,
+    aspectRatio: '9/16',
+    description: 'A dynamic visual sequence showcasing cinematic techniques and engaging storytelling.',
+    process: [
+
+      {
+        image: '/images/dop1.jpeg',
+        label: 'Sketch 1',
+        desc: 'moodboard sketch setup, build, and payoff to create a cohesive and engaging flow.'
       },
       {
-        image: '/images/bts.png',
-        label: 'Location Scouting',
-        desc: 'Multiple visits to the Negombo coastline to find the perfect shooting locations and study the natural light.'
+        image: '/images/dop2.jpeg',
+        label: 'Sketch 2',
+        desc: 'moodboard sketch setup, build, and payoff to create a cohesive and engaging flow.'
       },
       {
-        image: '/images/portfolio-3.png',
-        label: 'Final Grade',
-        desc: 'Warm amber and deep blue color palette applied in post to enhance the golden hour atmosphere and emotional depth.'
+        image: '/images/dop3.jpeg',
+        label: 'Sketch 3',
+        desc: 'moodboard sketch setup, build, and payoff to create a cohesive and engaging flow.'
       }
     ]
   }
 ];
 
 function createProjectHTML(project, index) {
-  const processCards = project.process.map(p => `
+  const processCards = project.process.map(p => {
+    const isVideo = /\.(mp4|webm|mov)$/i.test(p.image);
+    const mediaHTML = isVideo
+      ? `<video src="${p.image}" muted loop playsinline autoplay preload="auto"></video>`
+      : `<img src="${p.image}" alt="${p.label}" loading="lazy" />`;
+    return `
     <div class="process-card">
-      <img src="${p.image}" alt="${p.label}" loading="lazy" />
+      ${mediaHTML}
       <div class="process-card-text">
         <div class="process-card-label">${p.label}</div>
         <p class="process-card-desc">${p.desc}</p>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   // Build visual section — local video or thumbnail
   const visualContent = project.isLocalVideo ? `
@@ -174,6 +207,7 @@ function createProjectHTML(project, index) {
           ${linksHTML}
         </div>
       </div>
+      ${project.process && project.process.length > 0 ? `
       <button class="process-toggle" data-project="${project.id}" aria-expanded="false">
         <span class="process-toggle-icon">+</span>
         Behind the Scenes — Development Process
@@ -187,6 +221,7 @@ function createProjectHTML(project, index) {
           </div>
         </div>
       </div>
+      ` : ''}
     </article>
   `;
 }
@@ -203,6 +238,43 @@ export function renderPortfolio(container) {
       <div class="project-list">
         ${projectsHTML}
       </div>
+
+      <section class="bts-section">
+        <div class="bts-header fade-in-up">
+          <h2 class="bts-title">Behind the Scenes</h2>
+          <p class="bts-subtitle">A glimpse into the creative process</p>
+        </div>
+        <div class="bts-grid stagger-children">
+          <div class="bts-card">
+            <img src="/images/bts1.jpg" alt="On Set" />
+            <div class="bts-card-overlay">
+              <span class="bts-card-label">On Set</span>
+              <h3 class="bts-card-title">Maris Agni</h3>
+            </div>
+          </div>
+          <div class="bts-card">
+            <img src="/images/dop5.jpeg" alt="Thawa innako" />
+            <div class="bts-card-overlay">
+              <span class="bts-card-label">BTS reel</span>
+              <h3 class="bts-card-title">Commercial</h3>
+            </div>
+          </div>
+          <div class="bts-card">
+            <img src="/images/hero2.jpg" alt="Storyboard" />
+            <div class="bts-card-overlay">
+              <span class="bts-card-label">DOP</span>
+              <h3 class="bts-card-title">Green Fiesta 2026</h3>
+            </div>
+          </div>
+          <div class="bts-card">
+            <img src="/images/photo23.jpeg" alt="BTS" />
+            <div class="bts-card-overlay">
+              <span class="bts-card-label">BTS</span>
+              <h3 class="bts-card-title">Videography</h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   `;
 

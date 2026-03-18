@@ -27,41 +27,29 @@ export function renderHome(container) {
         </div>
         <div class="featured-grid stagger-children">
           <div class="featured-card">
-            <img src="/images/portfolio-1.png" alt="Neon Nights" />
-            <div class="featured-card-overlay">
-              <span class="featured-card-category">Music Video</span>
-              <h3 class="featured-card-title">Neon Nights</h3>
-            </div>
+            <img src="/images/portfolio-1.png" alt="Athletics Meet" />
+            <!--<div class="featured-card-overlay">
+              <span class="featured-card-category">Trailer</span>
+              <h3 class="featured-card-title">Athletics Meet</h3>
+            </div>-->
           </div>
           <div class="featured-card">
-            <img src="/images/portfolio-2.png" alt="Stage Presence" />
-            <div class="featured-card-overlay">
-              <span class="featured-card-category">Concert Film</span>
-              <h3 class="featured-card-title">Stage Presence</h3>
-            </div>
+            <img src="/images/portfolio-2.png" alt="Kataka Live in Concert" />
+            <!--<div class="featured-card-overlay">
+              <span class="featured-card-category">Highlight Reel</span>
+              <h3 class="featured-card-title">Kataka Live in Concert</h3>
+            </div>-->
           </div>
           <div class="featured-card">
-            <img src="/images/portfolio-3.png" alt="Golden Hour" />
-            <div class="featured-card-overlay">
-              <span class="featured-card-category">Short Film</span>
-              <h3 class="featured-card-title">Golden Hour</h3>
-            </div>
+            <img src="/images/portfolio-3.png" alt="NSBM Green Fiesta 2026" />
+           <!--<div class="featured-card-overlay">
+              <span class="featured-card-category">Artist Highlight Reel</span>
+              <h3 class="featured-card-title">NSBM Green Fiesta 2026</h3>
+            </div>-->
           </div>
         </div>
       </section>
 
-      <section class="reel-section">
-        <span class="reel-label fade-in-up">Showreel</span>
-        <h2 class="reel-title fade-in-up">Director's Reel 2025</h2>
-        <div class="reel-video-container fade-in-up scale-in">
-          <iframe 
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-            title="Minusha Balasooriya - Showreel 2025"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </section>
     </div>
   `;
 

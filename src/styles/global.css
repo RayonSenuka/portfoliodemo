@@ -338,7 +338,33 @@ img {
 
 /* ===== MAIN APP ===== */
 #app {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px); /* Leave room for footer */
+}
+
+/* ===== GLOBAL FOOTER ===== */
+.global-footer {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.footer-content a {
+  color: var(--text-secondary);
+  transition: color 0.3s;
+  pointer-events: auto;
+}
+
+.footer-content a:hover {
+  color: var(--accent);
 }
 
 /* ===== PAGE TRANSITIONS ===== */
